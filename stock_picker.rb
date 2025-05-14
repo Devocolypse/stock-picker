@@ -4,7 +4,13 @@ def stock_picker(stocks)
   best_profit = 0
 
   stocks.each_with_index do |price, day|
-    puts "Day #{1 + day} price: $#{price}"
+    comparison = 1
+
+    stocks.each_with_index do |next_price, next_day|
+      next unless next_day == day + comparison
+      puts "Comparing Day #{day + 1} with Day #{next_day + 1}"
+      comparison += 1
+    end
   end
 end
 
